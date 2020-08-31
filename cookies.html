@@ -1,0 +1,472 @@
+<html>
+<head>
+  
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
+  
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="Binco">
+    
+<!-- Primary Meta Tags -->
+<title>Smart Spilimbergo - Città e Innovazione</title>
+<meta name="title" content="Smart Spilimbergo - Città e Innovazione">
+<meta name="description" content="La Citta del Mosaico e il suo futuro Smart raccolto in un sito web open source che permette l'interazione da parte degli Spilimberghesi.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smartspilimbergo.github.io/">
+<meta property="og:title" content="Smart Spilimbergo - Città e Innovazione">
+<meta property="og:description" content="La Citta del Mosaico e il suo futuro Smart raccolto in un sito web open source che permette l'interazione da parte degli Spilimberghesi.">
+<meta property="og:image" content="https://smartspilimbergo.github.io/images/fb.png">
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://smartspilimbergo.github.io/">
+<meta property="twitter:title" content="Smart Spilimbergo - Città e Innovazione">
+<meta property="twitter:description" content="La Citta del Mosaico e il suo futuro Smart raccolto in un sito web open source che permette l'interazione da parte degli Spilimberghesi.">
+<meta property="twitter:image" content="https://smartspilimbergo.github.io/images/fb.png">
+
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-172399185-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-172399185-1');
+</script>
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="/css/bootstrap-italia.min.css" rel="stylesheet">
+
+<!-- Favicons-->
+<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+<link rel="manifest" href="/favicons/site.webmanifest">
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#0073e6">
+<link rel="shortcut icon" href="/favicons/favicon.ico">
+<meta name="msapplication-TileColor" content="#00a300">
+<meta name="msapplication-config" content="/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+
+
+
+  <style>
+/* Titillium+Web:300,400,600,700 */
+
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium Web Light'), local('TitilliumWeb-Light'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Titillium Web Light'), local('TitilliumWeb-Light'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Light.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web Regular'), local('TitilliumWeb-Regular'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Titillium Web Regular'), local('TitilliumWeb-Regular'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Regular.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Titillium Web SemiBold'), local('TitilliumWeb-SemiBold'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Titillium Web SemiBold'), local('TitilliumWeb-SemiBold'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-SemiBold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Titillium Web Bold'), local('TitilliumWeb-Bold'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Titillium Web';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Titillium Web Bold'), local('TitilliumWeb-Bold'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.woff2) format('woff2'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.woff) format('woff'),
+  url(/fonts/Titillium_Web/TitilliumWeb-Bold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Lora:400,700 */
+
+/* latin-ext */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lora Regular'), local('Lora-Regular'),
+  url(/fonts/Lora/Lora-Regular.woff2) format('woff2'),
+  url(/fonts/Lora/Lora-Regular.woff) format('woff'),
+  url(/fonts/Lora/Lora-Regular.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lora Regular'), local('Lora-Regular'),
+  url(/fonts/Lora/Lora-Regular.woff2) format('woff2'),
+  url(/fonts/Lora/Lora-Regular.woff) format('woff'),
+  url(/fonts/Lora/Lora-Regular.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lora Bold'), local('Lora-Bold'),
+  url(/fonts/Lora/Lora-Bold.woff2) format('woff2'),
+  url(/fonts/Lora/Lora-Bold.woff) format('woff'),
+  url(/fonts/Lora/Lora-Bold.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Lora Bold'), local('Lora-Bold'),
+  url(/fonts/Lora/Lora-Bold.woff2) format('woff2'),
+  url(/fonts/Lora/Lora-Bold.woff) format('woff'),
+  url(/fonts/Lora/Lora-Bold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Roboto+Mono:400,700 */
+
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.woff2) format('woff2'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.woff) format('woff'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Mono'), local('RobotoMono-Regular'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.woff2) format('woff2'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.woff) format('woff'),
+  url(/fonts/Roboto_Mono/RobotoMono-Regular.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Mono Bold'), local('RobotoMono-Bold'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.woff2) format('woff2'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.woff) format('woff'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.ttf) format('truetype');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Roboto Mono Bold'), local('RobotoMono-Bold'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.woff2) format('woff2'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.woff) format('woff'),
+  url(/fonts/Roboto_Mono/RobotoMono-Bold.ttf) format('truetype');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+</head>
+<body>
+<header>
+    
+    <div class="it-header-wrapper it-shadow">
+  <div class="it-header-slim-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="it-header-slim-wrapper-content">
+            <a class="mt-2 mt-sm-0 mt-md-0 mt-lg-0 focusable d-flex align-items-center" href="http://www.comune.spilimbergo.pn.it/home/index.html" target="_blank">
+                <span class="fw6">Comune di Spilimbergo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="it-nav-wrapper">
+    <div class="it-header-center-wrapper theme-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <div class="it-header-center-content-wrapper">
+              <div class="it-brand-wrapper">
+                <a href="#">
+                    <svg class="icon">
+                          <use xlink:href="/svg/sprite.svg#it-wifi"></use>
+                        </svg>
+                  <div class="it-brand-text">
+                    <h2 class="no_toc h5 font-weight-bold">Smart Spilimbergo</h2>
+                    <h3 class="no_toc d-none d-md-block">Città e innovazione</h3>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    </header>
+
+
+<section class="section">
+      <div class="container">
+        <div class="row mb-5 justify-content-center aos-init aos-animate" data-aos="fade">
+            <div class="col-md-7 text-center heading-wrap">
+              <h2 data-aos="fade-up" class="aos-init aos-animate">Cookie 🍪 Policy</h2>
+            </div>
+          </div>
+        <div class=" mb-5 align-items-center">
+            <h1 class="title" data-reader-unique-id="titleElement" style="font-size: 1.95552em; line-height: 1.2141em; margin-top: 0px; margin-bottom: 0.5em; max-width: 100%; caret-color: rgb(27, 27, 27); color: rgb(27, 27, 27); font-family: -apple-system-font;">
+  <br>
+</h1>
+<div data-reader-unique-id="3" style="max-width: 100%;">
+  <p data-reader-unique-id="4" style="max-width: 100%;">Per far funzionare bene questo sito, a volte installiamo sul tuo dispositivo dei piccoli file di dati che si chiamano "cookies". Anche la maggior parte dei grandi siti fanno lo stesso.</p>
+  <p data-reader-unique-id="5" style="max-width: 100%;"><strong data-reader-unique-id="6" style="max-width: 100%;">Che cosa sono i cookie?</strong></p>
+  <p data-reader-unique-id="8" style="max-width: 100%;">Un “cookie” è un file di testo salvato nel computer dell’utente nel momento in cui questo accede ad un sito web con lo scopo di fornire informazioni ogni volta che l’utente ritorna sullo stesso sito. E’ una sorta di promemoria della pagina internet visitata. Con il cookie, il server web invia informazioni al browser dell’utente (Internet Explorer, Mozilla Firefox, Google Chrome, ecc.) memorizzate sul computer di quest’ultimo, e saranno rilette ed aggiornate ogni qual volta l’utente ritornerà sul sito. In questo modo il sito Web può adattarsi automaticamente all’utente. Nel corso della navigazione l’utente potrebbe ricevere sul suo terminale anche cookie di siti diversi (cookies di “terze parti”), impostati direttamente da gestori di detti siti web e utilizzati per le finalità e secondo le modalità da questi definiti.</p>
+  <p data-reader-unique-id="9" style="max-width: 100%;">In funzione della loro durata, si distinguono in cookie di sessione (ossia quelli temporanei e cancellati automaticamente dal terminale al termine della sessione di navigazione, chiudendo il browser) ed in cookie persistenti (ossia quelli che restano memorizzati sul terminale fino alla loro scadenza o cancellazione da parte dell’utente).</p>
+  <p data-reader-unique-id="10" style="max-width: 100%;">
+    <br>
+  </p>
+  <p data-reader-unique-id="15" style="max-width: 100%;">In base alla funzione e alla finalità di utilizzo, i cookie possono suddividersi in cookie tecnici e cookie di profilazione.</p>
+  <p data-reader-unique-id="16" style="max-width: 100%;"><strong data-reader-unique-id="17" style="max-width: 100%;">Cookie tecnici</strong></p>
+  <p data-reader-unique-id="19" style="max-width: 100%;">Alcuni cookie sono usati per eseguire autenticazioni informatiche, monitoraggio di sessioni e memorizzazione di informazioni specifiche sugli utenti che accedono ad una pagina web. Questi cookie, cosiddetti tecnici, sono spesso utili per consentire di navigare in un sito web e utilizzarne tutte le funzionalità. I cookie tecnici sono quelli il cui utilizzo non richiede il consenso dell’utente.</p>
+  <p data-reader-unique-id="20" style="max-width: 100%;">A questa categoria appartengono anche gli analytics cookie. Si tratta di cookie che raccolgono informazioni circa l’utilizzo che un utente fa di un sito web e che consentono di migliorarne il funzionamento. Ad esempio gli analytics cookie mostrano quali sono le pagine più frequentemente visitate, consentono di verificare quali sono gli schemi ricorrenti d’utilizzo di un sito web e aiutano a comprendere ogni difficoltà che l’utente incontra nell’utilizzo.</p>
+  <p data-reader-unique-id="21" style="max-width: 100%;"><strong data-reader-unique-id="22" style="max-width: 100%;">Cookie di profilazione</strong></p>
+  <p data-reader-unique-id="24" style="max-width: 100%;">Altri cookie possono invece essere utilizzati per monitorare e profilare gli utenti durante la navigazione, studiare i loro movimenti e abitudini di consultazione del web o di consumo (cosa comprano, cosa leggono, ecc.), anche allo scopo di inviare pubblicità di servizi mirati e personalizzati. Si parla in questo caso di cookie di profilazione. L’utilizzo di detti cookie necessita dell’acquisizione preventiva del libero consenso informato dell’utente ai sensi dell’art. 7 del Regolamento UE 2016/679.</p>
+  <p data-reader-unique-id="25" style="max-width: 100%;"><strong data-reader-unique-id="26" style="max-width: 100%;">Cookie di terze parti</strong></p>
+  <p data-reader-unique-id="28" style="max-width: 100%;">Può accadere anche che una pagina web contenga cookie provenienti da altri siti e contenuti in vari elementi ospitati sulla pagina stessa, come ad esempio banner pubblicitari, immagini, video, mappe o specifici link a pagine web di altri domini che risiedono su server diversi da quello sul quale si trova la pagina richiesta. In altre parole, questi cookie sono impostati direttamente da gestori di siti web o server diversi da questo sito web. Parliamo, in questi casi, dei cosiddetti cookie terze parti, che di solito sono utilizzati a fini di profilazione. L’utilizzo di questi cookie necessita dell’acquisizione preventiva del libero consenso informato dell’utente.</p>
+  <p data-reader-unique-id="29" style="max-width: 100%;"><strong data-reader-unique-id="30" style="max-width: 100%;">Tipologie di cookie utilizzati dal nostro sito</strong></p>
+  <p data-reader-unique-id="32" style="max-width: 100%;">Le funzioni principali dei cookies installati da questo sito sono tecniche, vengono utilizzati per migliorare costantemente il servizio offerto, per l’autenticazione, per fini statistici, come il conteggio delle visite al sito. L’utilizzo di cookies è dunque strettamente finalizzato a facilitare le funzioni del server durante la navigazione del sito.</p>
+  <p data-reader-unique-id="33" style="max-width: 100%;">Il sito consente inoltre l’invio dei seguenti cookie di terze parti. Questi cookie non sono strumenti di nostra titolarità, per maggiori informazioni, pertanto, è possibile accedere all’informativa ed ai moduli di acquisizione del consenso delle terze parti, cliccando sui link riportati.</p>
+  <p data-reader-unique-id="34" style="max-width: 100%;">
+    <br>
+  </p>
+  <p data-reader-unique-id="39" style="max-width: 100%;">Per migliorare il sito web e comprendere quali parti o elementi siano maggiormente apprezzati dagli utenti, sono utilizzati come strumento di analisi anonima e aggregata, i cookie di terza parte di Google Analytics. Questi cookie non sono strumenti di nostra titolarità, per maggiori informazioni, pertanto, è possibile consultare l’informativa fornita da Google.</p>
+  <p data-reader-unique-id="40" style="max-width: 100%;"><strong data-reader-unique-id="41" style="max-width: 100%;">Gestione dei cookie</strong></p>
+  <p data-reader-unique-id="43" style="max-width: 100%;">L’utente può gestire le proprie preferenze relative ai cookie attraverso le funzionalità presenti nei comuni browser che consentono di cancellare/rimuovere i cookie (tutti o alcuni) o di cambiare le impostazioni del browser stesso in modo da bloccare l’invio dei cookie o di limitarlo a siti specifici (rispetto ad altri). Pertanto è possibile negare l’utilizzo dei cookie, seguendo la procedura di disabilitazione prevista dal proprio browser.</p>
+  <p data-reader-unique-id="44" style="max-width: 100%;">Di seguito si riportano le modalità proposte dai principali browser:</p>
+  <p data-reader-unique-id="45" style="max-width: 100%;">
+    <br>
+  </p>
+  <p data-reader-unique-id="50" style="max-width: 100%;">• 
+    <a data-reader-unique-id="51" href="http://support.microsoft.com/gp/cookies/en" rel="noopener" style="text-decoration: none; color: rgb(65, 110, 210); max-width: 100%;">Internet Explorer</a>
+    <br data-reader-unique-id="52" style="max-width: 100%;">• 
+    <a data-reader-unique-id="53" href="http://support.mozilla.com/en-US/kb/Cookies" rel="noopener" style="text-decoration: none; color: rgb(65, 110, 210); max-width: 100%;">Mozilla Firefox</a>
+    <br data-reader-unique-id="54" style="max-width: 100%;">• 
+    <a data-reader-unique-id="55" href="http://www.google.com/support/chrome/bin/answer.py?hl=en&amp;answer=95647" rel="noopener" style="text-decoration: none; color: rgb(65, 110, 210); max-width: 100%;">Google Chrome</a>
+    <br data-reader-unique-id="56" style="max-width: 100%;">• 
+    <a data-reader-unique-id="57" href="http://support.apple.com/kb/PH5042" rel="noopener" style="text-decoration: none; color: rgb(65, 110, 210); max-width: 100%;">Safari</a>
+    <br data-reader-unique-id="58" style="max-width: 100%;">• 
+    <a data-reader-unique-id="59" href="http://www.opera.com/browser/tutorials/security/privacy/" rel="noopener" style="text-decoration: none; color: rgb(65, 110, 210); max-width: 100%;">Opera</a>
+  </p>
+
+
+  <p data-reader-unique-id="60" style="max-width: 100%;">Ultimo aggiornamento: 23/05/2020</p>
+</div>
+<section data-reader-unique-id="2" style="max-width: 100%; caret-color: rgb(27, 27, 27); color: rgb(27, 27, 27); font-family: -apple-system-font; font-size: 18px;">
+  <div data-reader-unique-id="3" style="max-width: 100%;">
+    <br>
+  </div>
+</section>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+<footer class="it-footer">
+    <img src="svg/city.svg">
+  <div class="it-footer-main">
+    <div class="container">
+      <section>
+        <div class="row clearfix">
+          <div class="col-sm-12">
+            <div class="it-brand-wrapper">
+              <a href="#">
+                <svg class="icon">
+                  <use xlink:href="/svg/sprite.svg#it-wifi"></use>
+                </svg>
+                <div class="it-brand-text">
+                  <h2 class="no_toc">Smart Spilimbergo</h2>
+                  <h3 class="no_toc d-none d-md-block">
+                    Città e Innovazione
+                  </h3>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 pb-2">
+            <h4>
+              <a href="#" title="Vai alla pagina: Amministrazione">Disclaimer</a>
+            </h4>
+            <p>
+              Sito web informativo non affiliato o dipendente dal Comune di Spilimbergo, tutte le informazioni contenute sono distribiite con licenza MIT.
+            </p>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-6">
+            <h4>
+              <a href="#" title="Vai alla pagina: Documenti">Link utili</a>
+            </h4>
+            <div class="link-list-wrapper">
+              <ul class="footer-list link-list clearfix">
+                <li>
+                  <a class="list-item" href="http://www.arpa.fvg.it/cms/">Arpa FVG</a>
+                </li>
+                <li>
+                  <a class="list-item" href="http://www.regione.fvg.it/rafvg/cms/RAFVG/">Regione FVG</a>
+                </li>
+                <li>
+                  <a class="list-item disabled" href="#">Documentazione</a>
+                </li>
+                <li>
+                  <a class="list-item" href="http://www.comune.spilimbergo.pn.it/home/index.html">Comune di Spilimbergo</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 pb-2">
+            <h4>
+              <a href="#" title="Vai alla pagina: Seguici su">Seguici su</a>
+            </h4>
+            <ul class="list-inline text-left social">
+              <li class="list-inline-item">
+                <a class="p-2 text-white" href="https://fb.me/smartspilimbergo" target="_blank">
+                  <svg class="icon icon-sm icon-white align-top">
+                    <use xlink:href="/svg/sprite.svg#it-facebook"></use>
+                  </svg>
+                  <span class="sr-only">Facebook</span></a>
+              </li>
+              <li class="list-inline-item">
+                <a class="p-2 text-white" href="https://github.com/smartspilimbergo" target="_blank">
+                  <svg class="icon icon-sm icon-white align-top">
+                    <use xlink:href="/svg/sprite.svg#it-github"></use>
+                  </svg>
+                  <span class="sr-only">Github</span></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="it-footer-small-prints clearfix">
+    <div class="container">
+      <h3 class="sr-only">Sezione Link Utili</h3>
+      <ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+        <li class="list-inline-item"><a href="cookies.html" target="_blank" title="Privacy-Cookies">Cookies policy</a></li>
+        <li class="list-inline-item"><a href="cookies.html" target="_blank" title="Privacy-Cookies">Privacy policy</a></li>
+        <p class="text-white">Made with &hearts; by <a href="https://binco.me" target="_blank">Binco</a> with <a href="https://github.com/italia/bootstrap-italia" target="_blank">Bootsrap Italia</a></p>
+      </ul>
+    </div>
+  </div>
+</footer>
+    
+<div class="cookiebar bg-dark p-4 hide" aria-hidden="true">
+  <div class="container">
+    <div class="row d-flex align-items-center">
+      <div class="col-12 col-md-6">
+        <span class="text-white small">Questo sito utilizza cookie tecnici, analytics e di terze parti.<br>Proseguendo nella navigazione accetti l’utilizzo dei cookie.</span>
+      </div>
+      <div class="col-12 col-md-6 mt-4 mt-md-0 d-flex justify-content-end">
+          <a class="btn btn-link" href="/cookies.html">Cookie policy</a>
+        <button class="btn btn-primary mr-2" data-accept="cookiebar">Accetto</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" crossorigin="anonymous"></script>
+<script src="/js/bootstrap-italia.min.js"></script>
+<script src="js/comuni.js"></script>
+<script>window.__PUBLIC_PATH__ = '/fonts'</script>
+    </body>
+
+</html>
