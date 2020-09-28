@@ -6,7 +6,8 @@ var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/outdoors-v11',
 center: [13.1, 46.1],
-zoom: 7
+zoom: 7,
+interactive : false
 });
  
 map.on('load', function () {
