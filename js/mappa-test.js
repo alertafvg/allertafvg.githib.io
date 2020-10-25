@@ -9,8 +9,10 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiYmluY28iLCJhIjoiY2o1NTN5dTNiMDJtdzMydGdybHh4cmFhMyJ9.SDvCSaNQC6xpSTqsJN1mCQ'
+    accessToken: ${{ secrets.MAPBOX_KEY }}
 }).addTo(map);
+
+var marker = L.marker([46.1, 13.1]).addTo(map);
 
     var fvga = {
       "type": "Polygon",
@@ -14841,5 +14843,23 @@ if (data[1].level == 0){color = "green"}
         else if  (data[3].level == 0){color = "yellow"}
         else if  (data[3].level == 0){color = "orange"}
         else if  (data[3].level == 0){color = "red"};
-    L.geoJSON(fvgd , {style:  {"color" : color}} ).addTo(map);       
+    L.geoJSON(fvgd , {style:  {"color" : color}} ).addTo(map);  
+    
+    
+    
+   leafletImage(map, function(err, canvas) {
+    // now you have canvas
+    // example thing to do with that canvas:
+    var img = document.createElement('img');
+    var dimensions = map.getSize();
+    img.width = dimensions.x;
+    img.height = dimensions.y;
+    img.src = canvas.toDataURL();
+    document.getElementById('images').innerHTML = '';
+    document.getElementById('images').appendChild(img);
+}); 
+    
+    
 });
+
+
