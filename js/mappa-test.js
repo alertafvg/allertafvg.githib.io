@@ -9,7 +9,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: ${{ secrets.MAPBOX_KEY }}
+    accessToken: ${{ secrets.MAPBOX_API }}
 }).addTo(map);
 
 var marker = L.marker([46.1, 13.1]).addTo(map);

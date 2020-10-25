@@ -1,7 +1,7 @@
 // TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
 	// https://account.mapbox.com
-	mapboxgl.accessToken = ${{ secrets.MAPBOX_KEY }};
+	mapboxgl.accessToken = ${{ secrets.MAPBOX_API }};
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/outdoors-v11',
