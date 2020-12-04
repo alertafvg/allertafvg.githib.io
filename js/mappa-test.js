@@ -14824,25 +14824,25 @@ $.ajax(settings).done(function (data) {
     if (data[0].level == 0){ var color = "green"}
         else if  (data[0].level == 1){  color = "yellow"}
         else if  (data[0].level == 2){  color = "orange"}
-        else if  (data[0].level == 2){  color = "red"}
+        else if  (data[0].level == 3){  color = "red"}
     L.geoJSON(fvga , {style:  {"color" : color}} ).addTo(map);    
 
 if (data[1].level == 0){color = "green"}
         else if  (data[1].level == 1){color = "yellow"}
         else if  (data[1].level == 2){color = "orange"}
-        else if  (data[1].level == 2){color = "red"};
+        else if  (data[1].level == 3){color = "red"};
     L.geoJSON(fvgb , {style:  {"color" : color}} ).addTo(map); 
     
         if (data[2].level == 0){color = "green"}
         else if  (data[2].level == 1){color = "yellow"}
         else if  (data[2].level == 2){color = "orange"}
-        else if  (data[2].level == 2){color = "red"};
+        else if  (data[2].level == 3){color = "red"};
     L.geoJSON(fvgc , {style:  {"color" : color}} ).addTo(map); 
     
     if (data[3].level == 0){color = "green"}
-        else if  (data[3].level == 0){color = "yellow"}
-        else if  (data[3].level == 0){color = "orange"}
-        else if  (data[3].level == 0){color = "red"};
+        else if  (data[3].level == 1){color = "yellow"}
+        else if  (data[3].level == 2){color = "orange"}
+        else if  (data[3].level == 3){color = "red"};
     L.geoJSON(fvgd , {style:  {"color" : color}} ).addTo(map);  
     
     
