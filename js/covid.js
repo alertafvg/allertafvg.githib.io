@@ -12,6 +12,8 @@ function dateToNiceString(myDate){
 
 var table = document.getElementById("tabella");
 
+var map = document.getElementById("map");
+
   //  <tr> <th scope="row">'.i.'</th>     <td>'. data.municipalities[i]name .'</td>     <td>'. data.municipalities[i]pop .'</td>      <td>'. data.municipalities[i]q .'</td>        <td>'. data.municipalities[i]p .'</td>       <td>'. data.municipalities[i]g .'</td><td>'. data.municipalities[i]d .'</td></tr>
 
 
@@ -21,63 +23,101 @@ var positivi = [];
 var guariti = [];
 var deceduti = [];
 var comuni = [];
+var istat = [];
 Papa.parse("/data.csv", {
 	download: true,
     header: true,
     fastMode: true,
 	step: function(row) {
-        table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Quarantena +'</td>        <td>'+ row.data.Positivi +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
+        table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
         quarantena.push(row.data.Quarantena);
         positivi.push(row.data.Positivi);
         guariti.push(row.data.Guariti);
         deceduti.push(row.data.Morti);
         comuni.push(row.data.Comune);
+        istat.push(row.data.ISTAT);
 	},
 	complete: function() {
-                        var options1 = {
-  chart: {
-      height: 20000,
-      type: 'bar'
-  },
-plotOptions: {
-          bar: {
-            horizontal: true,
-          },
-        },
-series: [
-   // {name: 'Quarantena',data: quarantena},
-    {
-    name: 'Positivi',
-    data: positivi
-        },{
-    name: 'Guariti',
-    data: guariti
-        },{
-    name: 'Deceduti',
-    data: deceduti
-        }],
-  labels: ['Quarantena', 'Positivi', 'Guariti', 'Deceduti'],
-  title: {
-      text: 'Dati Covid Comuni' ,
-  },
-        xaxis: {
-          categories: comuni
-        },
-  noData: {
-    text: 'Caricamento...'
-  },
-colors:['#0066CC', '#ff9900', '#00cf86', '#f73e5a']
-};
-console.log(options1)
-var chart = new ApexCharts(
-  document.querySelector("#comuni"),
-  options1)
-chart.render();
 		console.log("All done!");
 	}
 });
 
 
+
+var options1 = {
+  chart: {
+      height: 500,
+      type: 'radar',
+  },
+  dataLabels: {
+      enabled: false
+  },
+  series: [],
+  title: {
+      text: 'Dati Comune',
+  },
+  noData: {
+    text: 'Selezione il comune...'
+  },
+    dataLabels: {
+  enabled: true,
+  background: {
+    enabled: true,
+    borderRadius:2,
+  }
+},
+    fill: {
+      opacity: 0.5,
+},
+            markers: {
+colors:['yellow', 'green', '#f73e5a']}
+}
+
+var chart1 = new ApexCharts(
+  document.querySelector("#comuni"),
+  options1
+);
+
+chart1.render();
+
+function getColor(d) {
+    return d > 500 ? '#0033BB' :
+           d > 200  ? '#0054DC' :
+           d > 100  ? '#0088E8' :
+           d > 50  ? '#00B8F8' :
+           d > 20   ? '#4CD8FC' :
+           d > 10   ? '#8CE4FC' :
+           d > 5   ? '#CCF0F0' :
+                      '#FFFFFF';
+}
+
+function aggiornacomune(i) {
+    
+    var k = istat.indexOf(i);
+    console.log(k);
+        chart1.updateOptions({
+        series:[
+ {
+    name: 'Valore',
+    data: [positivi[k], guariti[k],deceduti[k]]
+        }            ],
+        xaxis: {
+  categories: ['Positivi', 'Guariti', 'Deceduti'],
+            title: {
+                text: 'Dati Comune di ' + comuni[k] ,
+            },
+  labels: {
+    show: true
+  }
+}
+})
+    
+    map.innerHTML += ''
+    
+}
+
+
+//Dati regionali
 
 var options = {
   chart: {
