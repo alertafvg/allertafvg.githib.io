@@ -1,3 +1,5 @@
+
+
 //usage ex: alert(dateToNiceString(new Date())); 
 //returns this format: "Oct 23 2019 1:09pm"
 function dateToNiceString(myDate){
@@ -5,11 +7,17 @@ function dateToNiceString(myDate){
 }
 
 
+
+
+
 // var table = document.getElementById("tabella");
 
 //var map = document.getElementById("map");
 
   //  <tr> <th scope="row">'.i.'</th>     <td>'. data.municipalities[i]name .'</td>     <td>'. data.municipalities[i]pop .'</td>      <td>'. data.municipalities[i]q .'</td>        <td>'. data.municipalities[i]p .'</td>       <td>'. data.municipalities[i]g .'</td><td>'. data.municipalities[i]d .'</td></tr>
+
+
+//
 
 
 var quarantena = [];
@@ -21,10 +29,11 @@ var istat = [];
 
 $(document).ready(function(){
 Papa.parse("/data.csv", {
+    download: true,
     header: true,
     fastMode: true,
 	step: function(row) {
-        // table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
+        //table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
         quarantena.push(row.data.Quarantena);
         positivi.push(row.data.Positivi);
         guariti.push(row.data.Guariti);
