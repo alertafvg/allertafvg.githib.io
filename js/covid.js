@@ -18,12 +18,16 @@ var map = document.getElementById("map");
 
 
 //
+
+
 var quarantena = [];
 var positivi = [];
 var guariti = [];
 var deceduti = [];
 var comuni = [];
 var istat = [];
+
+$(document).ready(function(){
 Papa.parse("/data.csv", {
 	download: true,
     header: true,
@@ -41,6 +45,8 @@ Papa.parse("/data.csv", {
 		console.log("All done!");
 	}
 });
+});
+
 
 
 
