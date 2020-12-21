@@ -12,7 +12,7 @@ function dateToNiceString(myDate){
 
 var table = document.getElementById("tabella");
 
-var map = document.getElementById("map");
+//var map = document.getElementById("map");
 
   //  <tr> <th scope="row">'.i.'</th>     <td>'. data.municipalities[i]name .'</td>     <td>'. data.municipalities[i]pop .'</td>      <td>'. data.municipalities[i]q .'</td>        <td>'. data.municipalities[i]p .'</td>       <td>'. data.municipalities[i]g .'</td><td>'. data.municipalities[i]d .'</td></tr>
 
@@ -29,7 +29,7 @@ var istat = [];
 
 $(document).ready(function(){
 Papa.parse("/data.csv", {
-	download: true,
+    download: true,
     header: true,
     fastMode: true,
 	step: function(row) {
@@ -40,10 +40,10 @@ Papa.parse("/data.csv", {
         deceduti.push(row.data.Morti);
         comuni.push(row.data.Comune);
         istat.push(row.data.ISTAT);
-	},
-	complete: function() {
-		console.log("All done!");
-	}
+    },
+    complete: function() {
+    console.log("All done!");
+    }
 });
 });
 
@@ -53,31 +53,28 @@ Papa.parse("/data.csv", {
 var options1 = {
   chart: {
       height: 500,
-      type: 'radar',
-  },
-  dataLabels: {
-      enabled: false
+      type: "radar"
   },
   series: [],
   title: {
-      text: 'Dati Comune',
+      text: "Dati Comune"
   },
   noData: {
-    text: 'Selezione il comune...'
+    text: "Selezione il comune..."
   },
     dataLabels: {
   enabled: true,
   background: {
     enabled: true,
-    borderRadius:2,
+    borderRadius: 2
   }
 },
     fill: {
-      opacity: 0.5,
+      opacity: 0.5
 },
-            markers: {
-colors:['yellow', 'green', '#f73e5a']}
-}
+    markers: {
+        colors:["yellow", "green", "#f73e5a"]}
+};
 
 var chart1 = new ApexCharts(
   document.querySelector("#comuni"),
@@ -87,39 +84,32 @@ var chart1 = new ApexCharts(
 chart1.render();
 
 function getColor(d) {
-    return d > 500 ? '#0033BB' :
-           d > 200  ? '#0054DC' :
-           d > 100  ? '#0088E8' :
-           d > 50  ? '#00B8F8' :
-           d > 20   ? '#4CD8FC' :
-           d > 10   ? '#8CE4FC' :
-           d > 5   ? '#CCF0F0' :
-                      '#FFFFFF';
+    return d > 500 ? "#0033BB" :
+           d > 200  ? "#0054DC" :
+           d > 100  ? "#0088E8" :
+           d > 50  ? "#00B8F8" :
+           d > 20   ? "#4CD8FC" :
+           d > 10   ? "#8CE4FC" :
+           d > 5   ? "#CCF0F0" :
+                      "#FFFFFF";
 }
 
 function aggiornacomune(i) {
-    
     var k = istat.indexOf(i);
-    console.log(k);
         chart1.updateOptions({
         series:[
  {
-    name: 'Valore',
+    name: "Valore",
     data: [positivi[k], guariti[k],deceduti[k]]
         }            ],
         xaxis: {
-  categories: ['Positivi', 'Guariti', 'Deceduti'],
+  categories: ["Positivi", "Guariti", "Deceduti"],
             title: {
-                text: 'Dati Comune di ' + comuni[k] ,
+                text: "Dati Comune di " + comuni[k]
             },
-  labels: {
-    show: true
-  }
-}
-})
-    
-    map.innerHTML += ''
-    
+  labels: {show: true}
+        }
+        })    
 }
 
 
@@ -128,19 +118,19 @@ function aggiornacomune(i) {
 var options = {
   chart: {
       height: 500,
-      type: 'line',
+      type: "line",
   },
   dataLabels: {
       enabled: false
   },
   series: [],
   title: {
-      text: 'Dati Regionali Covid',
+      text: "Dati Regionali Covid",
   },
   noData: {
-    text: 'Caricamento...'
+    text: "Caricamento..."
   },
-colors:['#00cf86','#0066CC', 'yellow', '#ff9900', '#f73e5a']
+colors:["#00cf86","#0066CC", "yellow", "#ff9900", "#f73e5a"]
 }
 
 var chart = new ApexCharts(
@@ -151,7 +141,7 @@ var chart = new ApexCharts(
 chart.render();
 
 
-var url = 'https://www.dati.friuliveneziagiulia.it/resource/e95s-vpj5.json';
+var url = "https://www.dati.friuliveneziagiulia.it/resource/e95s-vpj5.json";
 
 $.getJSON(url, function(response) {
         var ricoverati_con_sintomi = [];
@@ -178,7 +168,6 @@ $.getJSON(url, function(response) {
           for (let i = 0; i < response.length; i++){
             dimessi_guariti.push(response[i].dimessi_guariti)
             };
-    
                 var labels = [];
           for (let i = 0; i < response.length; i++){
             labels.push(dateToNiceString(new Date(response[i].data)))
@@ -187,26 +176,27 @@ $.getJSON(url, function(response) {
 
   chart.updateSeries([
  {
-    name: 'Dimessi guariti',
+    name: "Dimessi guariti",
     type: "area",
     data: dimessi_guariti
   }, {
-    name: 'Isolamento domiciliare',
+    name: "Isolamento domiciliare",
     type: "area",
     data: isolamento_domiciliare
   },{
-    name: 'Ricoverati con sintomi',
+    name: "Ricoverati con sintomi",
     data: ricoverati_con_sintomi
   },
 {
-    name: 'Terapia intensiva',
+    name: "Terapia intensiva",
     data: terapia_intensiva
   },
 {
-    name: 'Totale deceduti',
+    name: "Totale deceduti",
     type: "area",
     data: deceduti
-  }               ])
+  }
+])
     
     
     chart.updateOptions({
