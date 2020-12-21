@@ -1,3 +1,11 @@
+function getColor(v){
+    if (v == 0){ var color = "green"}
+        else if  (v == 1){  color = "yellow"}
+        else if  (v == 2){  color = "orange"}
+        else if  (v == 3){  color = "red"}
+    return color
+}
+
 // TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
 	// https://account.mapbox.com
@@ -14825,15 +14833,11 @@ map.addSource('map-fvg-d', {
 });
 
     var settings = {
-  "url": "https://allerta.binco.me",
+  "url": "https://allerta.binco.me/",
   "method": "GET"
 };
 
 $.ajax(settings).done(function (data) {
-        if (data[0].level == 0){ var color = "green"}
-        else if  (data[0].level == 1){ var color = "yellow"}
-        else if  (data[0].level == 2){ var color = "orange"}
-        else if  (data[0].level == 3){ var color = "red"};
         
         
 map.addLayer({
@@ -14841,15 +14845,12 @@ map.addLayer({
 'type': 'fill',
 'source': 'map-fvg-a',
 'paint': {
-'fill-color': color,
+'fill-color': getColor(data[0].level),
 'fill-opacity': 0.5
 }
 });
 
-if (data[1].level == 0){ var color = "green"}
-        else if  (data[1].level == 1){ var color = "yellow"}
-        else if  (data[1].level == 2){ var color = "orange"}
-        else if  (data[1].level == 3){ var color = "red"};
+
         
         
 map.addLayer({
@@ -14857,15 +14858,11 @@ map.addLayer({
 'type': 'fill',
 'source': 'map-fvg-b',
 'paint': {
-'fill-color': color,
+'fill-color': getColor(data[1].level),
 'fill-opacity': 0.5
 }
 });
     
-        if (data[2].level == 0){ var color = "green"}
-        else if  (data[2].level == 1){ var color = "yellow"}
-        else if  (data[2].level == 2){ var color = "orange"}
-        else if  (data[2].level == 3){ var color = "red"};
         
         
 map.addLayer({
@@ -14873,15 +14870,11 @@ map.addLayer({
 'type': 'fill',
 'source': 'map-fvg-c',
 'paint': {
-'fill-color': color,
+'fill-color': getColor(data[2].level),
 'fill-opacity': 0.5
 }
 });
-    
-    if (data[3].level == 0){ var color = "green"}
-        else if  (data[3].level == 1){ var color = "yellow"}
-        else if  (data[3].level == 2){ var color = "orange"}
-        else if  (data[3].level == 3){ var color = "red"};
+
         
         
 map.addLayer({
@@ -14889,7 +14882,7 @@ map.addLayer({
 'type': 'fill',
 'source': 'map-fvg-d',
 'paint': {
-'fill-color': color,
+'fill-color': getColor(data[3].level),
 'fill-opacity': 0.5
 }
 });
