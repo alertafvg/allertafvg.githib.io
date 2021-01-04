@@ -26,6 +26,7 @@ var guariti = [];
 var deceduti = [];
 var comuni = [];
 var istat = [];
+var aggiornamento = [];
 
 $(document).ready(function(){
 Papa.parse("/data.csv", {
@@ -40,6 +41,7 @@ Papa.parse("/data.csv", {
         deceduti.push(row.data.Morti);
         comuni.push(row.data.Comune);
         istat.push(row.data.ISTAT);
+        aggiornamento.push(row.data.Aggiornamento);
     },
     complete: function() {
     console.log("All done!");
@@ -99,16 +101,16 @@ function aggiornacomune(i) {
         chart1.updateOptions({
         series:[
  {
-    name: "Valore",
+    name: aggiornamento[k],
     data: [positivi[k], guariti[k],deceduti[k]]
         }            ],
         xaxis: {
   categories: ["Positivi", "Guariti", "Deceduti"],
-            title: {
-                text: "Dati Comune di " + comuni[k]
-            },
   labels: {show: true}
-        }
+        },
+        title: {
+         text: "Dati " +comuni[k] +" aggiornati il " + aggiornamento[k]
+            }
         })    
 }
 
