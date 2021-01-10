@@ -18,7 +18,7 @@ var options2 = {
     },
     series: [],
     title: {
-        text: "Dati Vaccinazioni",
+        text: "Dati Giornalieri Vaccinazioni",
     },
     xaxis: {
         categories: []
