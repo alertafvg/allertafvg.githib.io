@@ -16,6 +16,8 @@ function dateToNiceString(myDate) {
 
 //
 
+// var nomicomuni = 
+
 
 var quarantena = [];
 var positivi = [];
