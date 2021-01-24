@@ -26,7 +26,7 @@ var options2 = {
     noData: {
         text: "Caricamento..."
     },
-    colors: ["#00cf86", "#0066CC", "#FFC0CB"]
+    colors: ["#00cf86", "#0066CC", "#FFC0CB","#0bd9d2","#3126ff"]
 }
 
 var chart2 = new ApexCharts(
@@ -103,6 +103,8 @@ $.getJSON(url, function(response) {
     var totale = [];
     var sesso_maschile = [];
     var sesso_femminile = [];
+    var prima_dose = [];
+    var seconda_dose = [];
     var labels = [];
 
     for (let i = 0; i < response.data.length; i++) {
@@ -110,6 +112,8 @@ $.getJSON(url, function(response) {
             totale.push(response.data[i].totale)
             sesso_maschile.push(response.data[i].sesso_maschile)
             sesso_femminile.push(response.data[i].sesso_femminile)
+            prima_dose.push(response.data[i].prima_dose)
+            seconda_dose.push(response.data[i].seconda_dose)
             labels.push(dateToNiceString(new Date(response.data[i].data_somministrazione)))
         }
     };
@@ -128,6 +132,16 @@ $.getJSON(url, function(response) {
             type: "column",
             name: "Sesso femminile",
             data: sesso_femminile
+        },
+        {
+            type: "line",
+            name: "Prima dose",
+            data: prima_dose
+        },
+        {
+            type: "line",
+            name: "Seconda dose",
+            data: seconda_dose
         }
     ]);
 
@@ -191,17 +205,20 @@ var url = "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/mas
 $.getJSON(url, function(response) {
     var numero_dosi = [];
     var labels = [];
+    var fornitore = [];
 
     for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].area == "FVG") {
             numero_dosi.push(response.data[i].numero_dosi)
+            fornitore.push(response.data[i].fornitore)
             labels.push(dateToNiceString(new Date(response.data[i].data_consegna)))
         }
     };
 
     chart4.updateSeries([{
         name: "Numero  Giornaliero Dosi",
-        data: numero_dosi
+        data: numero_dosi,
+        labels: fornitore
     }]);
 
 
