@@ -95,18 +95,27 @@ var chart4 = new ApexCharts(
 chart4.render();
 
 
-// tab 1
+// Tab 1-2
 
 var url = "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-summary-latest.json";
 
 $.getJSON(url, function(response) {
+    
+    response.data.sort((a, b) => {
+  return new Date(a.data_somministrazione) - new Date(b.data_somministrazione); // ordinamento vedi issue #70
+})
+    
     var totale = [];
     var sesso_maschile = [];
     var sesso_femminile = [];
     var prima_dose = [];
     var seconda_dose = [];
     var labels = [];
-
+    //tab 2
+    var categoria_ospiti_rsa = [];
+    var categoria_operatori_sanitari_sociosanitari = [];
+    var categoria_personale_non_sanitario = [];
+    
     for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].area == "FVG") {
             totale.push(response.data[i].totale)
@@ -115,6 +124,10 @@ $.getJSON(url, function(response) {
             prima_dose.push(response.data[i].prima_dose)
             seconda_dose.push(response.data[i].seconda_dose)
             labels.push(dateToNiceString(new Date(response.data[i].data_somministrazione)))
+            //tab2
+            categoria_ospiti_rsa.push(response.data[i].categoria_ospiti_rsa)
+            categoria_operatori_sanitari_sociosanitari.push(response.data[i].categoria_operatori_sanitari_sociosanitari)
+            categoria_personale_non_sanitario.push(response.data[i].categoria_personale_non_sanitario)
         }
     };
 
@@ -151,28 +164,9 @@ $.getJSON(url, function(response) {
             categories: labels
         }
     })
-});
-
-// Tab 2
-
-var url = "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-summary-latest.json";
-
-$.getJSON(url, function(response) {
-    var categoria_ospiti_rsa = [];
-    var categoria_operatori_sanitari_sociosanitari = [];
-    var categoria_personale_non_sanitario = [];
-    var labels = [];
-
-    for (let i = 0; i < response.data.length; i++) {
-        if (response.data[i].area == "FVG") {
-            categoria_ospiti_rsa.push(response.data[i].categoria_ospiti_rsa)
-            categoria_operatori_sanitari_sociosanitari.push(response.data[i].categoria_operatori_sanitari_sociosanitari)
-            categoria_personale_non_sanitario.push(response.data[i].categoria_personale_non_sanitario)
-            labels.push(dateToNiceString(new Date(response.data[i].data_somministrazione)))
-        }
-    };
-
-    chart3.updateSeries([{
+    
+    //tab 2
+        chart3.updateSeries([{
             type: "column",
             name: "Ospiti rsa",
             data: categoria_ospiti_rsa
@@ -195,8 +189,8 @@ $.getJSON(url, function(response) {
             categories: labels
         }
     })
+    
 });
-
 
 // Tab 3
 
