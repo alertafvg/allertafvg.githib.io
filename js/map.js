@@ -9,7 +9,7 @@ function getColor(v){
 // TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
 	// https://account.mapbox.com
-	mapboxgl.accessToken = 'pk.eyJ1IjoiYmluY28iLCJhIjoiY2o1NTN5dTNiMDJtdzMydGdybHh4cmFhMyJ9.SDvCSaNQC6xpSTqsJN1mCQ';
+	mapboxgl.accessToken = 'pk.eyJ1IjoiYmluY28iLCJhIjoiY2trcThzaXBpMGs2ejJ2cDh1cjRlZW44YSJ9.epZl__8OgredgHD2K1qWGg';
 var map = new mapboxgl.Map({
 container: 'map',
 style: 'mapbox://styles/mapbox/outdoors-v11',
