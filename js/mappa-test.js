@@ -9,7 +9,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     id: 'mapbox/streets-v11',
     tileSize: 512,
     zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoiYmluY28iLCJhIjoiY2o1NTN5dTNiMDJtdzMydGdybHh4cmFhMyJ9.SDvCSaNQC6xpSTqsJN1mCQ'
+    accessToken: 'pk.eyJ1IjoiYmluY28iLCJhIjoiY2trcThzaXBpMGs2ejJ2cDh1cjRlZW44YSJ9.epZl__8OgredgHD2K1qWGg'
 }).addTo(map);
 
 var marker = L.marker([46.1, 13.1]).addTo(map);
