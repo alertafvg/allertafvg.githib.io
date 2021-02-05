@@ -144,7 +144,7 @@ var chart = new ApexCharts(
 chart.render();
 
 
-var url = "https://www.dati.friuliveneziagiulia.it/resource/e95s-vpj5.json";
+var url = "https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni.json";
 
 $.getJSON(url, function(response) {
     var ricoverati_con_sintomi = [];
@@ -155,6 +155,7 @@ $.getJSON(url, function(response) {
     var dimessi_guariti = [];
     var labels = [];
     for (let i = 0; i < response.length; i++) {
+        if (response[i].codice_regione == "6") {
         ricoverati_con_sintomi.push(response[i].ricoverati_con_sintomi)
         terapia_intensiva.push(response[i].terapia_intensiva)
         isolamento_domiciliare.push(response[i].isolamento_domiciliare)
@@ -162,6 +163,7 @@ $.getJSON(url, function(response) {
         deceduti.push(response[i].deceduti)
         dimessi_guariti.push(response[i].dimessi_guariti)
         labels.push(dateToNiceString(new Date(response[i].data)))
+    };
     };
 
 
