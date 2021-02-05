@@ -43,13 +43,7 @@ var chart1 = new ApexCharts(
 chart1.render();
 
 
-var quarantena = [];
-var positivi = [];
-var guariti = [];
-var deceduti = [];
-var comuni = [];
-var istat = [];
-var aggiornamento = [];
+
 
 function aggiornacomune(c) {
     Papa.parse("/data.csv", {
@@ -58,6 +52,14 @@ function aggiornacomune(c) {
         fastMode: true,
         step: function(row) {
             //table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
+            var quarantena = [];
+            var positivi = [];
+            var guariti = [];
+            var deceduti = [];
+            var comuni = [];
+            var istat = [];
+            var aggiornamento = [];
+            
             if (row.data.ISTAT == c) {
             quarantena.push(row.data.Quarantena);
             positivi.push(row.data.Positivi);
