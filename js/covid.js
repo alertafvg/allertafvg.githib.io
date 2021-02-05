@@ -46,20 +46,19 @@ chart1.render();
 
 
 function aggiornacomune(c) {
+    var quarantena = [];
+    var positivi = [];
+    var guariti = [];
+    var deceduti = [];
+    var comuni = [];
+    var istat = [];
+    var aggiornamento = [];
     Papa.parse("/data.csv", {
         download: true,
         header: true,
         fastMode: true,
         step: function(row) {
             //table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
-            var quarantena = [];
-            var positivi = [];
-            var guariti = [];
-            var deceduti = [];
-            var comuni = [];
-            var istat = [];
-            var aggiornamento = [];
-            
             if (row.data.ISTAT == c) {
             quarantena.push(row.data.Quarantena);
             positivi.push(row.data.Positivi);
@@ -81,13 +80,16 @@ function aggiornacomune(c) {
         },{
             name: "Guariti",
             data: guariti
-        },
+        },{
+            name: "Deceduti",
+            data: deceduti
+        }
                 ],
         xaxis: {
             categories: aggiornamento
         },
         title: {
-            text: "Dati " + comuni
+            text: "Dati " + comuni[1]
         }
     })
             console.log("All done!");
