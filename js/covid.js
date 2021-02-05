@@ -18,43 +18,10 @@ function dateToNiceString(myDate) {
 
 // var nomicomuni = 
 
-
-var quarantena = [];
-var positivi = [];
-var guariti = [];
-var deceduti = [];
-var comuni = [];
-var istat = [];
-var aggiornamento = [];
-
-$(document).ready(function() {
-    Papa.parse("/data.csv", {
-        download: true,
-        header: true,
-        fastMode: true,
-        step: function(row) {
-            //table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
-            quarantena.push(row.data.Quarantena);
-            positivi.push(row.data.Positivi);
-            guariti.push(row.data.Guariti);
-            deceduti.push(row.data.Morti);
-            comuni.push(row.data.Comune);
-            istat.push(row.data.ISTAT);
-            aggiornamento.push(row.data.Aggiornamento);
-        },
-        complete: function() {
-            console.log("All done!");
-        }
-    });
-});
-
-
-
-
 var options1 = {
     chart: {
         height: 500,
-        type: "radar"
+        type: "line"
     },
     series: [],
     title: {
@@ -62,16 +29,6 @@ var options1 = {
     },
     noData: {
         text: "Selezione il comune..."
-    },
-    dataLabels: {
-        enabled: true,
-        background: {
-            enabled: true,
-            borderRadius: 2
-        }
-    },
-    fill: {
-        opacity: 0.5
     },
     markers: {
         colors: ["yellow", "green", "#f73e5a"]
@@ -85,6 +42,57 @@ var chart1 = new ApexCharts(
 
 chart1.render();
 
+
+var quarantena = [];
+var positivi = [];
+var guariti = [];
+var deceduti = [];
+var comuni = [];
+var istat = [];
+var aggiornamento = [];
+
+function aggiornacomune(c) {
+    Papa.parse("/data.csv", {
+        download: true,
+        header: true,
+        fastMode: true,
+        step: function(row) {
+            //table.innerHTML += '<tr> <th scope="row">'+ row.data.ISTAT +'</th>     <td>'+ row.data.Comune+'</td>     <td>'+ row.data.Popolazione +'</td>      <td>'+ row.data.Positivi +'</td>        <td>'+ row.data.Quarantena +'</td>       <td>'+ row.data.Guariti +'</td><td>'+ row.data.Morti +'</td></tr>';
+            if (row.data.ISTAT == c) {
+            quarantena.push(row.data.Quarantena);
+            positivi.push(row.data.Positivi);
+            guariti.push(row.data.Guariti);
+            deceduti.push(row.data.Morti);
+            comuni.push(row.data.Comune);
+            istat.push(row.data.ISTAT);
+            aggiornamento.push(row.data.Aggiornamento);
+            }
+        },
+        complete: function() {
+        chart1.updateOptions({
+        series: [{
+            name: "Quarantena",
+            data: quarantena
+        },{
+            name: "Positivi",
+            data: positivi
+        },{
+            name: "Guariti",
+            data: guariti
+        },
+                ],
+        xaxis: {
+            categories: aggiornamento
+        },
+        title: {
+            text: "Dati " + comuni
+        }
+    })
+            console.log("All done!");
+        }
+    });
+};
+
 function getColor(d) {
     return d > 500 ? "#0033BB" :
         d > 200 ? "#0054DC" :
@@ -95,26 +103,6 @@ function getColor(d) {
         d > 5 ? "#CCF0F0" :
         "#FFFFFF";
 }
-
-function aggiornacomune(i) {
-    var k = istat.indexOf(i);
-    chart1.updateOptions({
-        series: [{
-            name: aggiornamento[k],
-            data: [positivi[k], guariti[k], deceduti[k]]
-        }],
-        xaxis: {
-            categories: ["Positivi", "Guariti", "Deceduti"],
-            labels: {
-                show: true
-            }
-        },
-        title: {
-            text: "Dati " + comuni[k] + " aggiornati il " + aggiornamento[k]
-        }
-    })
-}
-
 
 //Dati regionali
 
