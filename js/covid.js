@@ -66,7 +66,7 @@ function aggiornacomune(c) {
             deceduti.push(row.data.Morti);
             comuni.push(row.data.Comune);
             istat.push(row.data.ISTAT);
-            aggiornamento.push(row.data.Aggiornamento);
+            aggiornamento.push(row.data.Data);
             }
         },
         complete: function() {
