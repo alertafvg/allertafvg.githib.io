@@ -56,7 +56,7 @@ var options3 = {
     noData: {
         text: "Caricamento..."
     },
-    colors: ["#f73e5a", "#ff9900", "#0bd9d2"]
+    colors: ["#f73e5a", "#ff9900", "#0bd9d2", "#3126ff"]
 }
 
 var chart3 = new ApexCharts(
@@ -115,6 +115,7 @@ $.getJSON(url, function(response) {
     var categoria_ospiti_rsa = [];
     var categoria_operatori_sanitari_sociosanitari = [];
     var categoria_personale_non_sanitario = [];
+    var categoria_over80 = [];
     
     for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].area == "FVG") {
@@ -128,6 +129,7 @@ $.getJSON(url, function(response) {
             categoria_ospiti_rsa.push(response.data[i].categoria_ospiti_rsa)
             categoria_operatori_sanitari_sociosanitari.push(response.data[i].categoria_operatori_sanitari_sociosanitari)
             categoria_personale_non_sanitario.push(response.data[i].categoria_personale_non_sanitario)
+            categoria_over80.push(response.data[i].categoria_over80)
         }
     };
 
@@ -180,6 +182,11 @@ $.getJSON(url, function(response) {
             type: "column",
             name: "Personale non sanitario",
             data: categoria_personale_non_sanitario
+        },
+        {
+            type: "column",
+            name: "Over 80",
+            data: categoria_over80
         }
     ]);
 
