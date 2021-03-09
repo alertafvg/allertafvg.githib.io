@@ -30,9 +30,7 @@ var options1 = {
     noData: {
         text: "Selezione il comune..."
     },
-    markers: {
-        colors: ["yellow", "green", "#f73e5a"]
-    }
+    colors: [ "#0066CC", "#ff9900", "#00cf86","#f73e5e"]
 };
 
 var chart1 = new ApexCharts(
