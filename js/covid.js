@@ -63,7 +63,7 @@ function aggiornacomune(c) {
             quarantena.push(row.data.Quarantena);
             positivi.push(row.data.Positivi);
             guariti.push(row.data.Guariti);
-            deceduti.push(row.data.Morti);
+            deceduti.push(row.data.Deceduti);
             comuni.push(row.data.Comune);
             istat.push(row.data.ISTAT);
             aggiornamento.push(row.data.Data);
