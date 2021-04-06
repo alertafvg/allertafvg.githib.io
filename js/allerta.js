@@ -6,7 +6,7 @@ var settings = {
   "method": "GET"
 };
         $.ajax(settings).done(function (data) {
-            for (let i = 0; i < 3; i++){
+            for (let i = 0; i < 4; i++){
                 if (data[i].level >= 1) {
                     var ok = 1;
                     break;
