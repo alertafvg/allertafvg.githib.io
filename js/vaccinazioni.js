@@ -1,4 +1,4 @@
-//usage ex: alert(dateToNiceString(new Date())); 
+//usage ex: alert(dateToNiceString(new Date()));
 //returns this format: "Oct 23 2019 1:09pm"
 function dateToNiceString(myDate) {
     return myDate.getDate() + "/" + (myDate.getMonth() + 1) + "/" + myDate.getFullYear();
@@ -100,11 +100,11 @@ chart4.render();
 var url = "https://raw.githubusercontent.com/italia/covid19-opendata-vaccini/master/dati/somministrazioni-vaccini-summary-latest.json";
 
 $.getJSON(url, function(response) {
-    
+
     response.data.sort((a, b) => {
   return new Date(a.data_somministrazione) - new Date(b.data_somministrazione); // ordinamento vedi issue #70
 })
-    
+
     var totale = [];
     var sesso_maschile = [];
     var sesso_femminile = [];
@@ -116,7 +116,11 @@ $.getJSON(url, function(response) {
     var categoria_operatori_sanitari_sociosanitari = [];
     var categoria_personale_non_sanitario = [];
     var categoria_over80 = [];
-    
+    var categoria_altro = [];
+    var categoria_forze_armate = [];
+    var categoria_personale_scolastico = [];
+
+
     for (let i = 0; i < response.data.length; i++) {
         if (response.data[i].area == "FVG") {
             totale.push(response.data[i].totale)
@@ -130,6 +134,9 @@ $.getJSON(url, function(response) {
             categoria_operatori_sanitari_sociosanitari.push(response.data[i].categoria_operatori_sanitari_sociosanitari)
             categoria_personale_non_sanitario.push(response.data[i].categoria_personale_non_sanitario)
             categoria_over80.push(response.data[i].categoria_over80)
+            categoria_altro.push(response.data[i].categoria_altro)
+            categoria_forze_armate.push(response.data[i].categoria_forze_armate)
+            categoria_personale_scolastico.push(response.data[i].categoria_personale_scolastico)
         }
     };
 
@@ -166,7 +173,7 @@ $.getJSON(url, function(response) {
             categories: labels
         }
     })
-    
+
     //tab 2
         chart3.updateSeries([{
             type: "column",
@@ -188,6 +195,21 @@ $.getJSON(url, function(response) {
             name: "Over 80",
             data: categoria_over80
         }
+        {
+            type: "column",
+            name: "Altro",
+            data: categoria_altro
+        }
+        {
+            type: "column",
+            name: "Forze Armate",
+            data: categoria_forze_armate
+        }
+        {
+            type: "column",
+            name: "Personale Scolastico",
+            data: categoria_personale_scolastico
+        }
     ]);
 
 
@@ -196,7 +218,7 @@ $.getJSON(url, function(response) {
             categories: labels
         }
     })
-    
+
 });
 
 // Tab 3
