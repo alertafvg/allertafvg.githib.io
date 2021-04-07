@@ -194,17 +194,17 @@ $.getJSON(url, function(response) {
             type: "column",
             name: "Over 80",
             data: categoria_over80
-        }
+        },
         {
             type: "column",
             name: "Altro",
             data: categoria_altro
-        }
+        },
         {
             type: "column",
             name: "Forze Armate",
             data: categoria_forze_armate
-        }
+        },
         {
             type: "column",
             name: "Personale Scolastico",
