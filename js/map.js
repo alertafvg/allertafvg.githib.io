@@ -14833,7 +14833,7 @@ map.addSource('map-fvg-d', {
 });
 
     var settings = {
-  "url": "https://allerta.binco.me/",
+  "url": "https://allerta.binco.me/proxy.php",
   "method": "GET"
 };
 
