@@ -14832,7 +14832,7 @@ $.ajax(settings).done(function (data) {
         if (data[0].level == 0){ var color = "green"}
         else if  (data[0].level == 1){ var color = "yellow"}
         else if  (data[0].level == 2){ var color = "orange"}
-        else if  (data[0].level == 2){ var color = "red"};
+        else if  (data[0].level == 3){ var color = "red"};
         
         
 map.addLayer({
@@ -14848,7 +14848,7 @@ map.addLayer({
 if (data[1].level == 0){ var color = "green"}
         else if  (data[1].level == 1){ var color = "yellow"}
         else if  (data[1].level == 2){ var color = "orange"}
-        else if  (data[1].level == 2){ var color = "red"};
+        else if  (data[1].level == 3){ var color = "red"};
         
         
 map.addLayer({
@@ -14864,7 +14864,7 @@ map.addLayer({
         if (data[2].level == 0){ var color = "green"}
         else if  (data[2].level == 1){ var color = "yellow"}
         else if  (data[2].level == 2){ var color = "orange"}
-        else if  (data[2].level == 2){ var color = "red"};
+        else if  (data[2].level == 3){ var color = "red"};
         
         
 map.addLayer({
@@ -14878,9 +14878,9 @@ map.addLayer({
 });
     
     if (data[3].level == 0){ var color = "green"}
-        else if  (data[3].level == 0){ var color = "yellow"}
-        else if  (data[3].level == 0){ var color = "orange"}
-        else if  (data[3].level == 0){ var color = "red"};
+        else if  (data[3].level == 1){ var color = "yellow"}
+        else if  (data[3].level == 2){ var color = "orange"}
+        else if  (data[3].level == 3){ var color = "red"};
         
         
 map.addLayer({
